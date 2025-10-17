@@ -265,7 +265,6 @@ export class MuseoBoids {
         const geometry = new THREE.BufferGeometry().setFromPoints(points);
         const material = new THREE.LineBasicMaterial({
             color: 0xe74c3c,
-            linewidth: 2,
             opacity: 0.6,
             transparent: true
         });

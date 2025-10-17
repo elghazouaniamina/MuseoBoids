@@ -243,9 +243,9 @@ export class CameraController {
 
         for (let boid of boids) {
             let d = this.position.dist(boid.position);
-            if (d < separationRadius) {
+            if (d < separationRadius && d > 0.01) {
                 let diff = Vector3D.sub(this.position, boid.position);
-                diff.div(d * d);
+                diff.div(Math.max(d * d, 0.01)); // Weight by distance with minimum threshold
                 steering.add(diff);
                 total++;
             }

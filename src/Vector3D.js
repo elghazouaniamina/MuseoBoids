@@ -64,7 +64,11 @@ export class Vector3D {
     }
 
     setMag(n) {
-        return this.normalize().mult(n);
+        const m = this.mag();
+        if (m > 0) {
+            return this.normalize().mult(n);
+        }
+        return this;
     }
 
     dist(v) {

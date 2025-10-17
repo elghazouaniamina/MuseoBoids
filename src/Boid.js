@@ -136,9 +136,9 @@ export class Boid {
 
         for (let other of boids) {
             let d = this.position.dist(other.position);
-            if (other !== this && d < this.separationRadius) {
+            if (other !== this && d < this.separationRadius && d > 0.01) {
                 let diff = Vector3D.sub(this.position, other.position);
-                diff.div(d * d); // Weight by distance
+                diff.div(Math.max(d * d, 0.01)); // Weight by distance with minimum threshold
                 steering.add(diff);
                 total++;
             }
@@ -160,9 +160,9 @@ export class Boid {
     avoidPoint(point) {
         let d = this.position.dist(point);
         
-        if (d < this.avoidanceRadius) {
+        if (d < this.avoidanceRadius && d > 0.01) {
             let diff = Vector3D.sub(this.position, point);
-            diff.div(d * d); // Stronger force when closer
+            diff.div(Math.max(d * d, 0.01)); // Stronger force when closer with minimum threshold
             diff.setMag(this.maxSpeed);
             diff.sub(this.velocity);
             diff.limit(this.maxForce);
