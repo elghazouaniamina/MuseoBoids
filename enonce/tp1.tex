@@ -1,0 +1,63 @@
+\documentclass[10pt,a4paper,final,oneside,twoside,openright,openany,onecolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\title{Mondes Virtuels - Labo  1}
+\date{Automne 2025}
+\begin{document}
+	\maketitle
+	On veut simuler le comportement de visiteurs dans un musée. On s'intéresse ici au déplacement de personnages virtuels dans le musée. Celui-ci sera effectivement construit lors du TP suivant.
+\\
+\\
+Le travail sera réalisé en binôme.
+\\
+\\
+La restitution de ce travail se fera au moyen d'un dépôt sur le GitLab de l'ENIB et ceci 15 jours après le dernier labo relatif à ce TP. Ce dépôt sera contitué des codes produits, des données utilisées et d'un rapport d'au moins 8 à 10 pages mettant en valeur par du texte, des codes intéressants et des images le travail réalisé.
+	\section*{Question 1}
+	On se donne un espace de 20m sur 20m qui représente un espace muséographique. Cet espace est représenté par un sol produit par le composant Sol. Placez sur ce sol 10 pingouins qui vont représenter les visiteurs du musée. La position ainsi que l'orientation des pingouins est définie de façon aléatoire. 
+	\\ \\
+	On imagine des murs pour le musée. "Accrochez y" des tableaux.
+	
+	
+	\section*{Question 2} 
+	Faîtes en sorte que les pingouins visiteurs puissent se déplacer en ligne droite sans sortir du musée. A chaque fois qu'ils rencontrent une limite du musée ils rebondissent dessus.
+	
+	\section*{Question 3}
+	Proposez un composant qui met en oeuvre le principe du steering de façon à ce qu'un acteur auquel ce composant a été ajouté atteigne un point donné et s'y arrête. Etendez ce composant de façon à ce que cet acteur parcourt une liste de points donnés et s'arrète sur le dernier point.
+	
+	\section*{Question 4}
+	Proposez un composant complémentaire qui permet à un acteur de s'éloigner de l'utilisateur lorsque celui-ci s'en approche trop (l'utilisateur est représenté par la position de la caméra virtuelle).
+	
+	\section*{Question 5}
+	En appliquant le principe des boïds  simulez le comportement d'un groupe de visiteurs virtuels (incarnés par des pingouins) qui évoluent ensembles dans le musée.
+	
+	\section*{Question 6}
+	Les différents membres du groupe suivent un acteur particulier qui joue le rôle de guide. Le guide suit  une trajectoire donnée a priori en utilisant le principe du steering.  
+	
+
+	\section*{Question 7}
+	Proposez une solution permettant de contrôler la caméra virtuelle non plus avec la souris mais comme un boïd.
+\section*{Annexe 1}
+Quelques opérations sur les vecteurs : 
+\\
+\begin{itemize}
+	\item \textbf{\texttt{const u = new THREE.Vector3(x,y,z)}} : création d'un vecteur de coord. x,y et z
+	\item  \textbf{\texttt{u.dot(v)}} : calcul du produit scalaire entre u et v
+	\item  \textbf{\texttt{u.normalize()}} : u prend sa version normalisée
+	\item  \textbf{\texttt{u.length()}} : calcul de la norme de u
+	\item  \textbf{\texttt{p0.distance(p1)}} :calcul de la distance entre les points p0 et p1
+	\item  \textbf{\texttt{u.addVectors(a,b)}} : affectation à u de la somme des vecteurs a et b
+    \item \textbf{\texttt{u.subVectors(a,b)}} : affecte à u la valeur de a-b
+	\item  \textbf{\texttt{u.multiplyScale(k)}} : affectation à u du produit du vecteur u par le scalaire k
+	 \item \textbf{\texttt{u.addScaledVector(v,k)}} : affectation à u de la somme de u et de k*v
+	 \item  \textbf{\texttt{u.copy(v)}} : copie dans u des coordonnées de v
+	 \item  \textbf{\texttt{u.clone()}} : renvoie une copie de u
+	
+\end{itemize}
+	
+	
+\end{document}
